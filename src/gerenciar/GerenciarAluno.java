@@ -5,10 +5,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import entidades.Aluno;
 
-public class GerenciarAluno implements GerenciarEntidades{
+public class GerenciarAluno{
     private static List<Aluno> alunos = new ArrayList<>();
     
-    @Override
+
     public static void main(String[] args) {
         while (true) {
             String res = JOptionPane.showInputDialog(
