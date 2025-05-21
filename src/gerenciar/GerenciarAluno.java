@@ -5,7 +5,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import entidades.Aluno;
 
-public class GerenciarAluno{
+
+public class GerenciarAluno {
     private static List<Aluno> alunos = new ArrayList<>();
     
 
