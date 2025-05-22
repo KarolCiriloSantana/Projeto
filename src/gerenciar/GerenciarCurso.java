@@ -18,7 +18,6 @@ public class GerenciarCurso {
                 "[4] Sair"
             );
 
-            // Verifica se o usuário cancelou ou fechou a janela
             if (res == null || res.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operação cancelada.");
                 return;
@@ -29,9 +28,9 @@ public class GerenciarCurso {
 
                 switch (escolha) {
                     case 1:
-                            // Coletar dados
+                            
                         String idStr = JOptionPane.showInputDialog("Digite o ID do curso:");
-                        if (idStr == null) break;  // Usuário cancelou
+                        if (idStr == null) break;  
 
                         String nomeCurso = JOptionPane.showInputDialog("Digite o nome do curso:");
                         if (nomeCurso == null) break;
@@ -46,7 +45,7 @@ public class GerenciarCurso {
                             int id = Integer.parseInt(idStr);
                             int duracao = Integer.parseInt(duracaoStr);
         
-                        if (!nomeCurso.trim().isEmpty()) { //pesquisar como funciona
+                        if (!nomeCurso.trim().isEmpty()) { 
                             cursos.add(new Curso(id, nomeCurso, descricao, duracao));
                             JOptionPane.showMessageDialog(null, "Curso adicionado!");
                         }
@@ -55,7 +54,7 @@ public class GerenciarCurso {
                         }
                         break;
                     case 2:
-                        // Implementar remoção de curso
+                        
                         if (cursos.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Nenhum curso cadastrado!");
                         } else {

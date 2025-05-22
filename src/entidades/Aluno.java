@@ -15,7 +15,7 @@ public class Aluno extends Usuario {
         this.matriculas.add(matricula);
     }
 
-    // Getters e Setters
+
     public List<Matricula> getMatriculas() {
         return new ArrayList<>(matriculas);
     }

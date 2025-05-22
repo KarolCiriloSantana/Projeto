@@ -8,12 +8,12 @@ import java.util.List;
 public class GerenciarMatricula {
     private static List<Matricula> matriculas = new ArrayList<>();
     
-    // Listas simuladas (seriam injetadas ou acessadas de outros gerenciadores)
+    
     private static List<Aluno> alunosSimulados = new ArrayList<>();
     private static List<Turma> turmasSimuladas = new ArrayList<>();
 
     public static void main(String[] args) {
-        // Mock de dados para teste (remova na versão final)
+        // Mock de dados para teste (pode ser removido)
         mockDados();
         
         while (true) {

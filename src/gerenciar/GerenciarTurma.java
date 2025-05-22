@@ -12,7 +12,7 @@ public class GerenciarTurma {
     private static List<Matricula> matriculas = new ArrayList<>();
 
     public static void main(String[] args) {
-        // Cadastro de exemplos (pode ser substituído por cadastro via interface)
+       
         cadastrarDadosExemplo();
         
         while (true) {
@@ -64,7 +64,7 @@ public class GerenciarTurma {
 
         Curso cursoSelecionado = cursosDisponiveis.get(cursoIndex);
 
-        // Coletar dados da turma
+       
         String idStr = JOptionPane.showInputDialog("Digite o ID da turma:");
         if (idStr == null) return;
 
