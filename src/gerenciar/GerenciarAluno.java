@@ -66,7 +66,7 @@ public class GerenciarAluno {
             return;
         }
 
-        // Verifica se CPF já existe
+
         if (alunos.stream().anyMatch(a -> a.getCpf().equals(cpf))) {
             JOptionPane.showMessageDialog(null, "Aluno com este CPF já cadastrado!");
             return;

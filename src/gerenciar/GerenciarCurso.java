@@ -76,7 +76,7 @@ public class GerenciarCurso {
                         }
                         break;
                     case 3:
-                        // Listar cursos
+                      
                         if (cursos.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Nenhum curso cadastrado!");
                         } else {
@@ -84,7 +84,7 @@ public class GerenciarCurso {
                         }
                         break;
                     case 4:
-                        return; // Sai do método main
+                        return; 
                     default:
                         JOptionPane.showMessageDialog(null, "Opção inválida!");
                         break;

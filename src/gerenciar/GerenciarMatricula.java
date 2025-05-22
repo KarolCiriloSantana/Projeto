@@ -61,14 +61,13 @@ public class GerenciarMatricula {
             return;
         }
 
-        // Seleção de aluno
         String listaAlunos = "Alunos disponíveis:\n";
         for (Aluno a : alunosSimulados) {
             listaAlunos += a.getMatricula() + " - " + a.getNome() + "\n";
         }
         String matriculaStr = JOptionPane.showInputDialog(listaAlunos + "\nDigite a matrícula do aluno:");
         
-        // Seleção de turma
+      
         String listaTurmas = "Turmas disponíveis:\n";
         for (Turma t : turmasSimuladas) {
             listaTurmas += t.getId_turma() + " - " + t.getCurso().getNome() + 
@@ -90,7 +89,6 @@ public class GerenciarMatricula {
                 .findFirst()
                 .orElse(null);
 
-            // Validações
             if (aluno == null || turma == null) {
                 JOptionPane.showMessageDialog(null, "Aluno ou turma não encontrados!");
                 return;
@@ -109,7 +107,6 @@ public class GerenciarMatricula {
                 return;
             }
 
-            // Efetua matrícula
             Matricula nova = new Matricula(aluno, turma);
             matriculas.add(nova);
             JOptionPane.showMessageDialog(null, "Matrícula realizada!\n" +
