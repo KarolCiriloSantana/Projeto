@@ -48,7 +48,7 @@ public class GerenciarTurma {
     }
 
     private static void adicionarTurma() {
-    // Selecionar curso
+   
     String listaCursos = listarCursosParaSelecao();
     String cursoSelecionadoStr = JOptionPane.showInputDialog(
         "Cursos disponíveis:\n" + listaCursos + "\nDigite o número do curso:");
@@ -84,35 +84,35 @@ public class GerenciarTurma {
             int minaluno = Integer.parseInt(minalunostr);
             int maxaluno = Integer.parseInt(maxalunostr);
     
-            // Validações de turma (mín/max alunos)
+           
             if (minaluno <= 0 || maxaluno <= 0 || minaluno > maxaluno) {
                 JOptionPane.showMessageDialog(null, "Quantidade de alunos inválida!");
                 return;
             }
     
-            // Coletar TODOS os dados do professor (necessários para o construtor)
+            
             String cpfProfessor = JOptionPane.showInputDialog("Digite o CPF do professor:");
             String emailProfessor = JOptionPane.showInputDialog("Digite o e-mail do professor:");
             String dataNascProfessor = JOptionPane.showInputDialog("Digite a data de nascimento (dd/mm/aaaa):");
             String especialidadeProfessor = JOptionPane.showInputDialog("Digite a especialidade do professor:");
     
-             // Validar se os dados não são nulos/vazios
+           
             if (cpfProfessor == null || emailProfessor == null || dataNascProfessor == null || especialidadeProfessor == null) {
                 JOptionPane.showMessageDialog(null, "Dados do professor incompletos!");
                 return;
             }
     
-            // Agora sim, criar o Professor corretamente
+      
             Professor professor = new Professor(
-                nomeProfessor,         // nome (já coletado anteriormente)
-                cpfProfessor,          // CPF
-                emailProfessor,        // e-mail
-                dataNascProfessor,    // data de nascimento
-                especialidadeProfessor // especialidade
+                nomeProfessor,       
+                cpfProfessor,          
+                emailProfessor,        
+                dataNascProfessor,   
+                especialidadeProfessor 
             );
     
             
-            // Criar a turma com o professor
+           
             Turma novaTurma = new Turma(id, cursoSelecionado, professor, minaluno, maxaluno, datain, datafim);
             turmas.add(novaTurma);
             JOptionPane.showMessageDialog(null, "Turma adicionada com sucesso!");
@@ -120,7 +120,7 @@ public class GerenciarTurma {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Valores numéricos inválidos!");
         }
-    } catch (NumberFormatException e) { // Adicionei esta linha para fechar o try externo
+    } catch (NumberFormatException e) { 
         JOptionPane.showMessageDialog(null, "Número de curso inválido!");
     }
 } 
@@ -140,7 +140,7 @@ public class GerenciarTurma {
         try {
             int indiceRemover = Integer.parseInt(indiceRemoverStr) - 1;
             if (indiceRemover >= 0 && indiceRemover < turmas.size()) {
-                // Remover matrículas associadas
+          
                 Turma turma = turmas.get(indiceRemover);
                 matriculas.removeIf(m -> m.getTurma().equals(turma));
                 
@@ -183,7 +183,7 @@ public class GerenciarTurma {
             return;
         }
 
-        // Selecionar turma
+     
         String listaTurmas = listarTurmasParaSelecao();
         String turmaSelecionadaStr = JOptionPane.showInputDialog(
             "Turmas disponíveis:\n" + listaTurmas + "\nDigite o número da turma:");
@@ -199,7 +199,6 @@ public class GerenciarTurma {
 
             Turma turma = turmas.get(turmaIndex);
 
-            // Selecionar aluno
             String listaAlunos = listarAlunosParaSelecao();
             String alunoSelecionadoStr = JOptionPane.showInputDialog(
                 "Alunos disponíveis:\n" + listaAlunos + "\nDigite o número do aluno:");
@@ -215,20 +214,19 @@ public class GerenciarTurma {
 
                 Aluno aluno = alunos.get(alunoIndex);
 
-                // Verificar se já está matriculado
+    
                 if (matriculas.stream().anyMatch(m -> 
                     m.getAluno().equals(aluno) && m.getTurma().equals(turma))) {
                     JOptionPane.showMessageDialog(null, "Aluno já matriculado nesta turma!");
                     return;
                 }
 
-                // Verificar se há vagas
+       
                 if (turma.getAlunos() >= turma.getMax_alunos()) {
                     JOptionPane.showMessageDialog(null, "Turma já está com capacidade máxima!");
                     return;
                 }
 
-                // Criar matrícula
                 Matricula matricula = new Matricula(aluno, turma);
                 matriculas.add(matricula);
                 turma.adicionarMatricula(matricula);
@@ -246,7 +244,7 @@ public class GerenciarTurma {
         }
     }
 
-    // Métodos auxiliares
+
     private static String listarCursosParaSelecao() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cursosDisponiveis.size(); i++) {
@@ -277,13 +275,11 @@ public class GerenciarTurma {
     }
 
     private static void cadastrarDadosExemplo() {
-        // Cursos de exemplo
+
         cursosDisponiveis.add(new Curso(1, "Programação Orientada a Objetos", "Curso de Java", 60));
         cursosDisponiveis.add(new Curso(2, "Banco de Dados", "Fundamentos de SQL", 40));
-        
-        // Alunos de exemplo
+
         alunos.add(new Aluno("João Silva", "111.111.111-11", "joao@email.com", "01/01/2000", 1001));
         alunos.add(new Aluno("Maria Santos", "222.222.222-22", "maria@email.com", "02/02/2001", 1002));
-  
         }
 }

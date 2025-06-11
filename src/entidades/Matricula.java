@@ -1,10 +1,10 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.util.concurrent.atomic.AtomicInteger; // Para geração thread-safe de IDs
+import java.util.concurrent.atomic.AtomicInteger; 
 
 public class Matricula {
-    private static final AtomicInteger contadorIds = new AtomicInteger(0); // Contador compartilhado
+    private static final AtomicInteger contadorIds = new AtomicInteger(0); 
     
     private final int id;
     private final Aluno aluno;
@@ -23,18 +23,18 @@ public class Matricula {
             throw new IllegalArgumentException("Aluno e Turma não podem ser nulos");
         }
         
-        this.id = contadorIds.incrementAndGet(); // Gera novo ID automaticamente
+        this.id = contadorIds.incrementAndGet(); 
         this.aluno = aluno;
         this.turma = turma;
         this.data = LocalDate.now();
         this.status = Status.CURSANDO;
         
-        // Atualiza os relacionamentos bidirecionais
+       
         this.aluno.adicionarMatricula(this);
         this.turma.adicionarMatricula(this);
     }
 
-    // --- Getters (sem setters para id, aluno, turma e data) ---
+
     public int getId() {
         return id;
     }
@@ -51,7 +51,7 @@ public class Matricula {
         return data;
     }
 
-    // --- Getters e Setters para campos mutáveis ---
+ 
     public Double getNota() {
         return nota;
     }
